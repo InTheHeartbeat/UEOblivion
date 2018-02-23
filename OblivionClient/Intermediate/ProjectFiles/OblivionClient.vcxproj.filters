@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<None Include="..\..\OblivionClient.uproject" />
+		<Filter Include="Source">
+			<UniqueIdentifier>{B0925693-D9BD-4727-8E49-5562DAA94C07}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\OblivionClient.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<None Include="..\..\Source\OblivionClientEditor.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<Filter Include="Config">
+			<UniqueIdentifier>{7C9AB06E-E8D1-4BBF-9438-AB0D1CDF40E2}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Config\DefaultEditor.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEngine.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultGame.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultInput.ini">
+			<Filter>Config</Filter>
+		</None >
+		<Filter Include="Source\OblivionClient">
+			<UniqueIdentifier>{5AAD0DD6-8440-4BEE-A5EF-3965F4FE4066}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\OblivionClient\OblivionClient.Build.cs">
+			<Filter>Source\OblivionClient</Filter>
+		</None >
+		<ClCompile Include="..\..\Source\OblivionClient\OblivionClient.cpp">
+			<Filter>Source\OblivionClient</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\OblivionClient\OblivionClient.h">
+			<Filter>Source\OblivionClient</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\OblivionClient\OblivionClientCharacter.cpp">
+			<Filter>Source\OblivionClient</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\OblivionClient\OblivionClientCharacter.h">
+			<Filter>Source\OblivionClient</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\OblivionClient\OblivionClientGameMode.cpp">
+			<Filter>Source\OblivionClient</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\OblivionClient\OblivionClientGameMode.h">
+			<Filter>Source\OblivionClient</Filter>
+		</ClInclude >
+	</ItemGroup>
+</Project>
