@@ -4,7 +4,7 @@
 	<ItemGroup>
 		<None Include="..\..\OblivionClient.uproject" />
 		<Filter Include="Source">
-			<UniqueIdentifier>{B0925693-D9BD-4727-8E49-5562DAA94C07}</UniqueIdentifier>
+			<UniqueIdentifier>{9D893F40-C1E3-4CD8-BEE1-AB6DCEE24A18}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\OblivionClient.Target.cs">
 			<Filter>Source</Filter>
@@ -13,7 +13,7 @@
 			<Filter>Source</Filter>
 		</None >
 		<Filter Include="Config">
-			<UniqueIdentifier>{7C9AB06E-E8D1-4BBF-9438-AB0D1CDF40E2}</UniqueIdentifier>
+			<UniqueIdentifier>{E7A9C8E9-92A8-44AE-BBC3-9209FB28F789}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Config\DefaultEditor.ini">
 			<Filter>Config</Filter>
@@ -31,7 +31,7 @@
 			<Filter>Config</Filter>
 		</None >
 		<Filter Include="Source\OblivionClient">
-			<UniqueIdentifier>{5AAD0DD6-8440-4BEE-A5EF-3965F4FE4066}</UniqueIdentifier>
+			<UniqueIdentifier>{0D002364-0F04-48F6-BAB3-5E5EFA7638EF}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\OblivionClient\OblivionClient.Build.cs">
 			<Filter>Source\OblivionClient</Filter>

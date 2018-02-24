@@ -18,6 +18,9 @@ class AOblivionClientCharacter : public ACharacter
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	class UCameraComponent* FPSCamera;
 public:
 	AOblivionClientCharacter();
 
@@ -29,7 +32,19 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera)
+	float CameraZoomStep;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera)
+	float CameraZoomSmooth;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera)
+	float CameraZoomMinDistance;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera)
+	float CameraZoomMaxDistance;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera)
+	float ChangeCameraThreshold;
 protected:
+	float CurrentCameraBoomLength;
+
 
 	/** Resets HMD orientation in VR. */
 	void OnResetVR();
@@ -57,6 +72,8 @@ protected:
 
 	/** Handler for when a touch input stops. */
 	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
+
+	void CameraZoom(float wheelAxis);
 
 protected:
 	// APawn interface

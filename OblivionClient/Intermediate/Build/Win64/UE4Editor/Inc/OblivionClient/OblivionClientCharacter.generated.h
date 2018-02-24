@@ -61,7 +61,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AOblivionClientCharacter); \
 
 #define OblivionClient_Source_OblivionClient_OblivionClientCharacter_h_12_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(AOblivionClientCharacter, CameraBoom); } \
-	FORCEINLINE static uint32 __PPO__FollowCamera() { return STRUCT_OFFSET(AOblivionClientCharacter, FollowCamera); }
+	FORCEINLINE static uint32 __PPO__FollowCamera() { return STRUCT_OFFSET(AOblivionClientCharacter, FollowCamera); } \
+	FORCEINLINE static uint32 __PPO__FPSCamera() { return STRUCT_OFFSET(AOblivionClientCharacter, FPSCamera); }
 
 
 #define OblivionClient_Source_OblivionClient_OblivionClientCharacter_h_9_PROLOG

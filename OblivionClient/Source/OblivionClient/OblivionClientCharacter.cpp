@@ -21,6 +21,11 @@ AOblivionClientCharacter::AOblivionClientCharacter()
 	BaseTurnRate = 45.f;
 	BaseLookUpRate = 45.f;
 
+	CameraZoomStep = 10;
+	CameraZoomSmooth = 10;
+	CameraZoomMinDistance = 1;
+	CameraZoomMaxDistance = 500;
+
 	// Don't rotate when the controller rotates. Let that just affect the camera.
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
@@ -35,7 +40,7 @@ AOblivionClientCharacter::AOblivionClientCharacter()
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
-	CameraBoom->TargetArmLength = 300.0f; // The camera follows at this distance behind the character	
+	CameraBoom->TargetArmLength = CurrentCameraBoomLength = 300.0f; // The camera follows at this distance behind the character	
 	CameraBoom->bUsePawnControlRotation = true; // Rotate the arm based on the controller
 
 	// Create a follow camera
@@ -43,6 +48,10 @@ AOblivionClientCharacter::AOblivionClientCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
+	FPSCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCamera"));	
+	FPSCamera->SetupAttachment(GetMesh(), FName("headSocket"));	
+	FPSCamera->bUsePawnControlRotation = false;
+	FPSCamera->SetRelativeRotation(FRotator(-90,0,90));
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 }
@@ -74,6 +83,8 @@ void AOblivionClientCharacter::SetupPlayerInputComponent(class UInputComponent* 
 
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AOblivionClientCharacter::OnResetVR);
+
+	PlayerInputComponent->BindAxis("CameraZoom", this, &AOblivionClientCharacter::CameraZoom);
 }
 
 
@@ -90,6 +101,17 @@ void AOblivionClientCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVect
 void AOblivionClientCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
 {
 		StopJumping();
+}
+
+void AOblivionClientCharacter::CameraZoom(float wheelAxis)
+{
+	CurrentCameraBoomLength = FMath::Clamp(CurrentCameraBoomLength + wheelAxis * CameraZoomStep, CameraZoomMinDistance, CameraZoomMaxDistance);
+	CameraBoom->TargetArmLength = FMath::FInterpTo(CameraBoom->TargetArmLength, CurrentCameraBoomLength, GetWorld()->GetDeltaSeconds(), CameraZoomSmooth);
+
+	bool camChange = CurrentCameraBoomLength <= ChangeCameraThreshold;
+	FollowCamera->SetActive(!camChange);
+	FPSCamera->SetActive(camChange);
+
 }
 
 void AOblivionClientCharacter::TurnAtRate(float Rate)
@@ -117,6 +139,8 @@ void AOblivionClientCharacter::MoveForward(float Value)
 		AddMovementInput(Direction, Value);
 	}
 }
+
+
 
 void AOblivionClientCharacter::MoveRight(float Value)
 {

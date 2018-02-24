@@ -19,7 +19,7 @@ void EmptyLinkFunctionForGeneratedCodeOblivionClient_init() {}
 			static const UE4CodeGen_Private::FPackageParams PackageParams = {
 				"/Script/OblivionClient",
 				PKG_CompiledIn | 0x00000000,
-				0x2C105083,
+				0x3D401DD1,
 				0xACA29F97,
 				nullptr, 0,
 				METADATA_PARAMS(nullptr, 0)
