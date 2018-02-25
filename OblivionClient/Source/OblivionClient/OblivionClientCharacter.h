@@ -48,7 +48,8 @@ protected:
 
 	/** Resets HMD orientation in VR. */
 	void OnResetVR();
-
+	void StartRunning();
+	void StopRunning();
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
 
@@ -74,6 +75,7 @@ protected:
 	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
 
 	void CameraZoom(float wheelAxis);
+	
 
 protected:
 	// APawn interface

@@ -16,15 +16,15 @@
 	},
 	"BuildProducts": [
 		{
-			"Path": "$(ProjectDir)/Binaries/Win64/UE4Editor-OblivionClient-843.dll",
+			"Path": "$(ProjectDir)/Binaries/Win64/UE4Editor-OblivionClient-1955.dll",
 			"Type": "DynamicLibrary"
 		},
 		{
-			"Path": "$(ProjectDir)/Binaries/Win64/UE4Editor-OblivionClient-843.pdb",
+			"Path": "$(ProjectDir)/Binaries/Win64/UE4Editor-OblivionClient-1955.pdb",
 			"Type": "SymbolFile"
 		},
 		{
-			"Path": "$(ProjectDir)/Intermediate/Build/Win64/UE4Editor/Development/UE4Editor-OblivionClient-843.lib",
+			"Path": "$(ProjectDir)/Intermediate/Build/Win64/UE4Editor/Development/UE4Editor-OblivionClient-1955.lib",
 			"Type": "ImportLibrary"
 		},
 		{

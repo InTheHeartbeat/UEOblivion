@@ -66,6 +66,9 @@ void AOblivionClientCharacter::SetupPlayerInputComponent(class UInputComponent* 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
+	PlayerInputComponent->BindAction("Run", IE_Pressed, this, &AOblivionClientCharacter::StartRunning);
+	PlayerInputComponent->BindAction("Run", IE_Released, this, &AOblivionClientCharacter::StopRunning);
+
 	PlayerInputComponent->BindAxis("MoveForward", this, &AOblivionClientCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AOblivionClientCharacter::MoveRight);
 
@@ -91,6 +94,16 @@ void AOblivionClientCharacter::SetupPlayerInputComponent(class UInputComponent* 
 void AOblivionClientCharacter::OnResetVR()
 {
 	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
+}
+
+void AOblivionClientCharacter::StartRunning()
+{
+	GetCharacterMovement()->MaxWalkSpeed = 400;
+}
+
+void AOblivionClientCharacter::StopRunning()
+{
+	GetCharacterMovement()->MaxWalkSpeed = 100;
 }
 
 void AOblivionClientCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
